@@ -3,8 +3,11 @@ import { Edit, Delete, Book, BookmarkAdded, Padding } from '@mui/icons-material'
 import BorrowButton from '../borrowing/BorrowButton';
 import ReturnButton from '../borrowing/ReturnButton';
 
-const BookList = ({ books, page, count, onPageChange, onEdit, onDelete, isAdmin }) => {
-    console.log(books, 'book listtt..!')
+const BookList = ({ books, page, count, onPageChange, onEdit, onDelete, isAdmin, onRefresh }) => {
+
+    const handleOperationSuccess = () => {
+        onRefresh(); // Trigger refresh after operation
+    };
     return (
 
         <Paper>
@@ -31,13 +34,7 @@ const BookList = ({ books, page, count, onPageChange, onEdit, onDelete, isAdmin 
                                 <TableCell>{book.author}</TableCell>
                                 <TableCell>{book.isbn}</TableCell>
                                 <TableCell>{book.availableCopies}</TableCell>
-                                {/* <TableCell>
-                                    {book.availableCopies > 0 ? (
-                                        <Chip label="Available" color="success" size="small" />
-                                    ) : (
-                                        <Chip label="Unavailable" color="error" size="small" />
-                                    )}
-                                </TableCell> */}
+
                                 <TableCell>
                                     {isAdmin ? (
                                         <>
@@ -54,16 +51,13 @@ const BookList = ({ books, page, count, onPageChange, onEdit, onDelete, isAdmin 
                                         </>
                                     ) : (
                                         <>
-                                            {/* {book.availableCopies > 0 ? (
-                                                <BorrowButton bookId={book._id} sx={{margin:'0 12px'}} />
-                                             ) : ( 
-                                                <ReturnButton bookId={book._id} />
-                                             )} */}
 
                                             {book.availableCopies > 0 && (
-                                                <BorrowButton bookId={book._id} sx={{ margin: '0 12px' }} />
+                                                <BorrowButton bookId={book._id} sx={{ margin: '0 12px' }} onSuccess={handleOperationSuccess}
+                                                />
                                             )}
-                                            <ReturnButton bookId={book._id} />
+                                            <ReturnButton bookId={book._id} onSuccess={handleOperationSuccess}
+                                            />
                                         </>
                                     )}
                                 </TableCell>

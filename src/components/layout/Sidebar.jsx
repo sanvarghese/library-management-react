@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = ({ isAdmin }) => {
 
-    console.log(isAdmin,'isAdmin')
     return (
         <Drawer
             variant="permanent"

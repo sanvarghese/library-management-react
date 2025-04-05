@@ -85,7 +85,7 @@ const BookForm = ({ open, onClose, onSubmit, book }) => {
 
     return (
         <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-            <DialogTitle>{book ? 'Edit Book' : 'Add New Book.'}</DialogTitle>
+            <DialogTitle>{book ? 'Edit Book' : 'Add New Book'}</DialogTitle>
             <DialogContent>
                 {/* <Grid container spacing={2} sx={{ mt: 1 }}>
                     <Grid item xs={12}>

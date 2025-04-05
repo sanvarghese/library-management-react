@@ -16,11 +16,8 @@ const ProfilePage = () => {
                 setLoading(true);
                 const response = await getBorrowHistory();
                 setHistory(response.data);  // Only keep the array part
-                console.log(response.data,'Fetching borrow history...');
 
             } catch (error) {
-                console.error('Error fetching borrow history:', error);
-                // Add error state if needed
             } finally {
                 setLoading(false);
             }

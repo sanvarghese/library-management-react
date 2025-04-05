@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button, Snackbar, Alert } from '@mui/material';
-import { returnBook } from '../../api/borrow'; // You'll need to create this API function
+import { returnBook } from '../../api/borrow'; 
 
-const ReturnButton = ({ bookId }) => {
+const ReturnButton = ({ bookId,onSuccess}) => {
+
     const [loading, setLoading] = useState(false);
     const [snackbar, setSnackbar] = useState({
         open: false,
@@ -19,6 +20,8 @@ const ReturnButton = ({ bookId }) => {
                 message: 'Book returned successfully!',
                 severity: 'success',
             });
+            onSuccess(); // Call the success callback
+
         } catch (error) {
             setSnackbar({
                 open: true,

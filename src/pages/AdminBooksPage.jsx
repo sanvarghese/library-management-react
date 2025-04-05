@@ -70,6 +70,8 @@ const AdminBooksPage = () => {
             await deleteBook(id);
             setBooks(books.filter(book => book._id !== id));
             showSnackbar('Book deleted successfully');
+            fetchBooks(); // Refresh the list after delete
+
         } catch (error) {
             console.error('Error deleting book:', error);
             showSnackbar('Failed to delete book', 'error');
@@ -90,11 +92,14 @@ const AdminBooksPage = () => {
                     book._id === editingBook._id ? updatedBook : book
                 ));
                 showSnackbar('Book updated successfully');
+                fetchBooks(); // Refresh the list after add/edit
+
             } else {
                 // Add new book
                 const newBook = await createBook(bookData);
                 setBooks([newBook, ...books]);
                 showSnackbar('Book added successfully');
+                fetchBooks(); // Refresh the list after add/edit
             }
             handleFormClose();
         } catch (error) {
