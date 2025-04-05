@@ -3,7 +3,6 @@ import { Email, Person, CalendarToday } from '@mui/icons-material';
 
 const Profile = ({ user, history }) => {
 
-    console.log(user,'userr', history,'history')
     return (
         <Box>
             <Paper sx={{ p: 3, mb: 3 }}>
@@ -18,10 +17,7 @@ const Profile = ({ user, history }) => {
                     <Email sx={{ mr: 1 }} />
                     <Typography>Email: {user.email}</Typography>
                 </Box>
-                {/* <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <CalendarToday sx={{ mr: 1 }} />
-                    <Typography>Member since: {new Date(user.createdAt).toLocaleDateString()}</Typography>
-                </Box> */}
+              
             </Paper>
 
             <Divider sx={{ my: 3 }} />

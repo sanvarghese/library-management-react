@@ -30,17 +30,7 @@ const ProfilePage = () => {
     }, []);
 
     return (
-        // <Container maxWidth="lg">
-        //     <h2>my profile ........</h2>
-        //     <Typography variant="h4" component="h1" gutterBottom>
-        //         My Profile..
-        //     </Typography>
-        //     {loading ? (
-        //         <CircularProgress />
-        //     ) : (
-        //             <Profile user={user} history={history} />
-        //     )}
-        // </Container>
+      
 
         <Container maxWidth="lg">
             <Typography variant="h4" component="h1" gutterBottom>

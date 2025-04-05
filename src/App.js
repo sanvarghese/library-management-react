@@ -31,12 +31,10 @@ const AdminRoute = ({ children }) => {
   console.log('AdminRoute check:', { user, isAdmin: isAdmin() });
 
   if (!user) {
-    console.log('Redirecting to login - no user');
     return <Navigate to="/login" replace />;
   }
 
   if (!isAdmin()) {
-    console.log('Redirecting to dashboard - not admin');
     return <Navigate to="/dashboard" replace />;
   }
 
